@@ -1,0 +1,22 @@
+.contactScreen {
+  .content-wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding-top: 25px;
+
+    .contentItem {
+      max-width: 790px;
+      min-width: 380px;
+      min-height: 400px;
+    }
+
+    .contentBar {
+      max-width: 214px;
+      min-width: 200px;
+      min-height: 400px;
+    }
+  }
+}

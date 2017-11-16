@@ -1,0 +1,67 @@
+.appScreen {
+  .card-wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding-top: 25px;
+
+    .cardItem {
+      min-width: 200px;
+      width: 49%;
+      height: 250px;
+      margin-right: 15px;
+
+      &.lastItem {
+        margin-right: 0;
+      }
+
+      .actionHeader {
+        background-color: #888 !important;
+        color: #fff !important;
+
+        span {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  .content-wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding-top: 25px;
+
+    .contentItem {
+      max-width: 790px;
+      min-width: 380px;
+      min-height: 400px;
+      padding: 0;
+
+      header {
+        background-color: #efefef !important;
+        color: #555 !important;
+        padding: 10px 12px;
+
+        h2,
+        h4 {
+          margin-top: 5px !important;
+        }
+      }
+
+      p {
+        padding: 10px 12px;
+      }
+    }
+
+    .contentBar {
+      max-width: 214px;
+      min-width: 200px;
+      min-height: 400px;
+    }
+  }
+}
