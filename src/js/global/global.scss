@@ -35,6 +35,49 @@ body {
 
 .theTopBar {
   box-shadow: none !important;
+  position: relative;
+}
+
+span.topNavi {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 12px 8px;
+    margin-right: 10px;
+    background: #496d89;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background: #718ea4;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .topMenu {
+    display: block;
+  }
+  span.topNavi {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .topMenu {
+    display: none;
+  }
+  span.topNavi {
+    display: inline-block;
+  }
 }
 
 .app-wrapper {

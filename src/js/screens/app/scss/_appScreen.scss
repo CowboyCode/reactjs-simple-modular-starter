@@ -42,6 +42,10 @@
       min-height: 400px;
       padding: 0;
 
+      &.half {
+        max-width: 49%;
+      }
+
       header {
         background-color: #efefef !important;
         color: #555 !important;
@@ -62,6 +66,15 @@
       max-width: 214px;
       min-width: 200px;
       min-height: 400px;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .contentItem,
+    .contentBar {
+      margin-top: 15px;
+      width: 100% !important;
+      max-width: 100% !important;
     }
   }
 }

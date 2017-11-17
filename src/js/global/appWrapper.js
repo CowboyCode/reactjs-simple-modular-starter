@@ -50,7 +50,7 @@ class AppWrapper extends Component {
     }
   }
 
-  renderTopLeftMenu = () => {
+  renderRightLeftMenu = () => {
     return (
       <IconMenu
         iconButtonElement={
@@ -71,6 +71,16 @@ class AppWrapper extends Component {
     )
   }
 
+  renderTopLeftMenu = () => {
+    return (
+      <div>
+        <span className="topNavi">
+          <Link to={`/`}>Home</Link> <Link to={`/contact`}>Contact</Link> <Link to={`/examples`}>Examples</Link>
+        </span>
+      </div>
+    )
+  }
+
   renderPageLoader = () => {
     if (this.state.loader === true) {
       return <CircularLoader />
@@ -86,8 +96,8 @@ class AppWrapper extends Component {
           <AppBar
             className="theTopBar"
             style={{ backgroundColor: '#333' }}
-            title="Title"
             iconElementLeft={this.renderTopLeftMenu()}
+            iconElementRight={this.renderRightLeftMenu()}
           />
           <div className="pageContent">
             {this.renderPageLoader()}
