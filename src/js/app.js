@@ -5,12 +5,15 @@ import AppWrapper from './global/AppWrapper'
 import AppScreen from './screens/app/AppScreen'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Styles from './global/global.scss'
+import { BrowserRouter } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <AppWrapper />
+        <BrowserRouter>
+          <AppWrapper />
+        </BrowserRouter>
       </MuiThemeProvider>
     )
   }

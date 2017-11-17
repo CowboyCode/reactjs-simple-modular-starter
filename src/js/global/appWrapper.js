@@ -21,41 +21,32 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close'
 import CircularLoader from '../components/CircularLoader'
 import Footer from '../components/Footer'
 
+// npm modules
+import { Route, Link, Switch, withRouter } from 'react-router-dom'
+
 // Screens
 import AppScreen from '../screens/app/AppScreen'
 import ExamplesScreen from '../screens/examples/ExamplesScreen'
 import ContactScreen from '../screens/contact/ContactScreen'
 
-const Router = {
-  AppScreen: AppScreen,
-  ExamplesScreen: ExamplesScreen,
-  ContactScreen: ContactScreen
-}
-
 class AppWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      screen: 'AppScreen',
       loader: true
     }
   }
 
   componentDidMount() {
+    // stop the loader after mounting
     this.setState({ loader: false })
-    console.log('did mount')
   }
 
+  // Push to screen
   goToPage = (event, child) => {
     if (child.props.index && child.props.screen) {
-      this.setScreenState(child.props.screen)
+      this.props.history.push(child.props.screen)
     }
-  }
-
-  setScreenState = screen => {
-    this.setState({
-      screen: screen
-    })
   }
 
   renderTopLeftMenu = () => {
@@ -72,9 +63,9 @@ class AppWrapper extends Component {
         className="topMenu"
         targetOrigin={{ horizontal: 'left', vertical: 'bottom' }}
         anchorOrigin={{ horizontal: 'left', vertical: 'top' }}>
-        <MenuItem index="0" screen="AppScreen" primaryText="Home" className="topMenuItem" />
-        <MenuItem index="1" screen="ExamplesScreen" primaryText="Examples" className="topMenuItem" />
-        <MenuItem index="2" screen="ContactScreen" primaryText="Contact" className="topMenuItem lastchild" />
+        <MenuItem index="0" screen="/" primaryText="Home" className="topMenuItem" />
+        <MenuItem index="1" screen="/examples" primaryText="Examples" className="topMenuItem" />
+        <MenuItem index="2" screen="/contact" primaryText="Contact" className="topMenuItem lastchild" />
       </IconMenu>
     )
   }
@@ -88,8 +79,6 @@ class AppWrapper extends Component {
   }
 
   render() {
-    let RenderScreen = Router[this.state.screen]
-
     return (
       <div className="site">
         <div className="app-wrapper">
@@ -101,7 +90,12 @@ class AppWrapper extends Component {
           />
           <div className="pageContent">
             {this.renderPageLoader()}
-            <RenderScreen />
+
+            <Switch>
+              <Route exact path="/" component={AppScreen} />
+              <Route path="/contact" component={ContactScreen} />
+              <Route path="/examples" component={ExamplesScreen} />
+            </Switch>
           </div>
 
           <Footer />
@@ -111,4 +105,5 @@ class AppWrapper extends Component {
   }
 }
 
-export default AppWrapper
+// have to wrap this in "with_router" to be able to use history.push (BrowserRouter)
+export default withRouter(AppWrapper)
