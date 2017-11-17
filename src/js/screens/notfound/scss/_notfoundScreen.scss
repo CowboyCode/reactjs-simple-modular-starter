@@ -1,0 +1,21 @@
+.notFoundScreen {
+  .content-wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding-top: 25px;
+
+    .contentItem {
+      width: 100%;
+      min-height: 400px;
+    }
+
+    .contentBar {
+      max-width: 214px;
+      min-width: 200px;
+      min-height: 400px;
+    }
+  }
+}

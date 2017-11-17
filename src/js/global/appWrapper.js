@@ -22,12 +22,13 @@ import CircularLoader from '../components/CircularLoader'
 import Footer from '../components/Footer'
 
 // npm modules
-import { Route, Link, Switch, withRouter } from 'react-router-dom'
+import { Route, Link, Switch, withRouter, RouteHandler } from 'react-router-dom'
 
 // Screens
 import AppScreen from '../screens/app/AppScreen'
 import ExamplesScreen from '../screens/examples/ExamplesScreen'
 import ContactScreen from '../screens/contact/ContactScreen'
+import NotFoundScreen from '../screens/notfound/NotFoundScreen'
 
 class AppWrapper extends Component {
   constructor(props) {
@@ -95,6 +96,7 @@ class AppWrapper extends Component {
               <Route exact path="/" component={AppScreen} />
               <Route path="/contact" component={ContactScreen} />
               <Route path="/examples" component={ExamplesScreen} />
+              <Route path="*" component={NotFoundScreen} />
             </Switch>
           </div>
 
